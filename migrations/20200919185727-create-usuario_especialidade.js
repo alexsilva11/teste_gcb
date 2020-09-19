@@ -10,7 +10,9 @@ module.exports = {
           key: 'id'
         },
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       especialidade_id: {
         type: Sequelize.INTEGER,
@@ -19,7 +21,9 @@ module.exports = {
           key: 'id'
         },
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       createdAt: {
         type: Sequelize.DATE,

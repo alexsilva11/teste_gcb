@@ -9,5 +9,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/cadastro', indexController.cadastro)
+router.post('/atualizar', indexController.atualizar)
+
+router.post('/deletar', indexController.deletar)
 
 module.exports = router;

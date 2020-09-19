@@ -20,7 +20,7 @@ const indexController = {
         }
 
         await Usuario.create(novoUsuario).then().catch(err => console.log(err))
-        
+
         let usuarioCadastrado = await Usuario.findOne({
             where: {
                 crm
@@ -37,8 +37,43 @@ const indexController = {
                 especialidade_id: especialidade
             })
         }
-        
+
         return res.json('ok')
+    },
+
+    atualizar: async (req, res) => {
+        let {
+            id,
+            nome,
+            telefone,
+            estado,
+            cidade
+        } = req.body
+
+        await Usuario.update({
+            nome,
+            telefone,
+            estado,
+            cidade
+        }, {
+            where: {
+                id
+            }
+        });
+
+        return res.send('ok')
+    },
+
+    deletar: async (req, res) => {
+        let { id } = req.body
+
+        
+        await Usuario.destroy({
+            where: { id }
+        }).then(() => console.log('apagou')
+        ).catch(err => console.log(err))
+
+        res.send('apagado para sempre')
     }
 }
 
