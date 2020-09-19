@@ -2,7 +2,7 @@ let UsuarioEspecialidade = (sequelize, DataTypes) => {
     let usuario_especialidade = sequelize.define(
         "UsuarioEspecialidade", {
             usuario_id: {
-                type: Sequelize.INTEGER,
+                type: DataTypes.INTEGER,
                 references: {
                   model: 'usuario',
                   key: 'id'
@@ -11,7 +11,7 @@ let UsuarioEspecialidade = (sequelize, DataTypes) => {
                 primaryKey: true
               },
               especialidade_id: {
-                type: Sequelize.INTEGER,
+                type: DataTypes.INTEGER,
                 references: {
                   model: 'especialidades',
                   key: 'id'
