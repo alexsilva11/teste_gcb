@@ -1,3 +1,4 @@
+const { Op } = require('sequelize')
 let { Usuario, Especialidades, UsuarioEspecialidade } = require('../models')
 
 const indexController = {
@@ -67,13 +68,26 @@ const indexController = {
     deletar: async (req, res) => {
         let { id } = req.body
 
-        
+
         await Usuario.destroy({
             where: { id }
         }).then(() => console.log('apagou')
         ).catch(err => console.log(err))
 
         res.send('apagado para sempre')
+    },
+
+    buscar: async (req, res) => {
+        let { nome } = req.query
+
+        let resultado = await Usuario.findAll({
+            where: {
+                nome: { [Op.like]: `%${nome}%` }
+            }})
+
+        console.log(resultado)
+
+        return res.send(resultado)
     }
 }
 
