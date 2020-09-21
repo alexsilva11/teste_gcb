@@ -46,6 +46,7 @@ const indexController = {
         let {
             id,
             nome,
+            crm,
             telefone,
             estado,
             cidade
@@ -53,9 +54,10 @@ const indexController = {
 
         await Usuario.update({
             nome,
+            crm,
             telefone,
             estado,
-            cidade
+            cidade,
         }, {
             where: {
                 id
@@ -83,11 +85,12 @@ const indexController = {
         let resultado = await Usuario.findAll({
             where: {
                 nome: { [Op.like]: `%${nome}%` }
-            }})
+            }, include: [{
+                association: 'especialidades',
+                through: {attibuttes : []}
+            }]})
 
-        console.log(resultado)
-
-        return res.send(resultado)
+        return res.json(resultado)
     }
 }
 

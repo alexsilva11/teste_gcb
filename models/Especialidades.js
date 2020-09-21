@@ -12,7 +12,7 @@ let Especialidades = (sequelize, DataTypes) => {
             allowNull: false
         }
     }, {
-        tableName: "Especialidades",
+        tableName: "especialidades",
         timestamps: true
     }
     );
@@ -20,7 +20,7 @@ let Especialidades = (sequelize, DataTypes) => {
     especialidades.associate = (models) => {
         especialidades.belongsToMany(models.Especialidades, {
             through: "usuario_especialidade",
-            foreignKey: "especialidade_id",
+            foreignKey: "especialidadeId",
             as: 'usuario'
         })
     }

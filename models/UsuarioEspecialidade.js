@@ -1,7 +1,7 @@
 let UsuarioEspecialidade = (sequelize, DataTypes) => {
     let usuario_especialidade = sequelize.define(
         "UsuarioEspecialidade", {
-            usuario_id: {
+            usuarioId: {
                 type: DataTypes.INTEGER,
                 references: {
                   model: 'usuario',
@@ -10,7 +10,7 @@ let UsuarioEspecialidade = (sequelize, DataTypes) => {
                 allowNull: false,
                 primaryKey: true
               },
-              especialidade_id: {
+              especialidadeId: {
                 type: DataTypes.INTEGER,
                 references: {
                   model: 'especialidades',
@@ -26,8 +26,8 @@ let UsuarioEspecialidade = (sequelize, DataTypes) => {
     );
 
     UsuarioEspecialidade.associate = (models) => {
-        UsuarioEspecialidade.belongsTo(models.Usuario, { foreignKey: 'usuario_id' })
-        UsuarioEspecialidade.belongsTo(models.Especialidades, { foreignKey: 'especialidade_id' })
+        UsuarioEspecialidade.belongsTo(models.Usuario, { foreignKey: 'usuarioId' })
+        UsuarioEspecialidade.belongsTo(models.Especialidades, { foreignKey: 'especialidadeId' })
     }
 
     return usuario_especialidade;

@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('usuario_especialidade', { 
-      usuario_id: {
+      usuarioId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'usuario',
@@ -14,7 +14,7 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      especialidade_id: {
+      especialidadeId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'especialidades',

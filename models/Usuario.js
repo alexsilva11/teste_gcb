@@ -36,8 +36,8 @@ let Usuario = (sequelize, DataTypes) => {
     usuario.associate = (models) => {
         usuario.belongsToMany(models.Especialidades, {
             through: "usuario_especialidade",
-            foreignKey: "usuario_id",
-            as: 'especialidade'
+            foreignKey: "usuarioId",
+            as: 'especialidades'
         })
     }
 
